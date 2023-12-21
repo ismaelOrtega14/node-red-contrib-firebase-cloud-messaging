@@ -1,0 +1,41 @@
+{
+  "name": "@ismael-node/red-contrib-firebase-notification",
+  "version": "1.0.0",
+  "description": "Custom node to send push notifications to firebase",
+  "main": "nodes/push-firebase.js",
+  "scripts": {
+    "clean": "rm -rf build/lib build/**/*.js",
+    "lint": "eslint . --ext .js",
+    "prettier": "prettier --write \"**/*.{md,ts}\"",
+    "test": "mocha './test/**/*_spec.js' --exit",
+    "start": "node-red -u ./.node-red"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ismaelOrtega14/red-contrib-firebase-notification.git"
+  },
+  "keywords": [
+    "admin",
+    "firebase",
+    "node-red",
+    "custom-node"
+  ],
+  "author": "Ismael Ortega",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ismaelOrtega14/red-contrib-firebase-notification/issues"
+  },
+  "homepage": "https://github.com/ismaelOrtega14/red-contrib-firebase-notification#readme",
+  "node-red": {
+    "nodes": {
+      "push-firebase": "nodes/push-firebase.js"
+    }
+  },
+  "devDependencies": {
+    "@types/node-red": "^1.3.4",
+    "eslint": "^8.56.0",
+    "eslint-config-google": "^0.14.0",
+    "node-red": "^3.1.3",
+    "node-red-node-test-helper": "^0.3.2"
+  }
+}

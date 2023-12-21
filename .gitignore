@@ -1,0 +1,12 @@
+### Node ###
+# Dependency directories
+node_modules
+
+# Build folder
+build/**/*.js
+
+# dotenv environment variables file
+.env
+
+### Node-red ###
+.node-red
