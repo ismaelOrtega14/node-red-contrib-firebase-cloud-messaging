@@ -1,0 +1,8 @@
+# All permissions
+*       @IsmaelOrtega14
+
+# Permission by file type
+*.js    @IsmaelOrtega14
+*.json  @IsmaelOrtega14
+*.md    @IsmaelOrtega14
+*.yml   @IsmaelOrtega14

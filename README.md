@@ -18,14 +18,24 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][https://github.com/ismaelOrtega14/red-contrib-firebase-notification/network/members]
-[![Stargazers][stars-shield]][https://github.com/ismaelOrtega14/red-contrib-firebase-notification/stargazers]
-[![Issues][issues-shield]][https://github.com/ismaelOrtega14/red-contrib-firebase-notification/issues]
-[![MIT License][license-shield]][https://github.com/ismaelOrtega14/red-contrib-firebase-notification/blob/master/LICENSE]
-[![Downloads][shield-downloads]][https://github.com/ismaelOrtega14/red-contrib-firebase-notification?activeTab=versions]
-[![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/ismaelortega/]
 
+<div align="center">
+    <!-- License -->
+    <a href="https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/blob/master/LICENSE"><img src="https://img.shields.io/github/license/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging" alt="shield-license" /></a>
+    <!-- Issues -->
+    <a href="https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/issues"><img src="https://img.shields.io/github/issues/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging" alt="shield-issues" /></a>
+    <!-- Stars -->
+    <a href="https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/stargazers"><img src="https://img.shields.io/github/stars/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging" alt="shield-stars" /></a>
+    <!-- Forks -->
+    <a href="https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/network/members"><img src="https://img.shields.io/github/forks/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging" alt="shield-forks" /></a>
+    <!-- downloads -->
+    <a href="https://www.npmjs.com/package/@ismael-node/red-contrib-firebase-notification?activeTab=versions"><img src="https://img.shields.io/npm/dm/@ismael-node/red-contrib-firebase-notification" alt="shield-downloads" /></a>
+    <!-- Versions -->
+    <img alt="GitHub package.json version (branch)" src="https://img.shields.io/github/package-json/v/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/master">
+    <img alt="GitHub package.json version (branch)" src="https://img.shields.io/github/package-json/v/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/development">
+
+</div>
+<br />
 
 
 <!-- PROJECT LOGO -->
