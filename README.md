@@ -18,49 +18,48 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+<div style="text-align: center;">
 
-<div align="center">
-    <!-- License -->
-    <a href="https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/blob/master/LICENSE"><img src="https://img.shields.io/github/license/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging" alt="shield-license" /></a>
-    <!-- Issues -->
-    <a href="https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/issues"><img src="https://img.shields.io/github/issues/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging" alt="shield-issues" /></a>
-    <!-- Stars -->
-    <a href="https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/stargazers"><img src="https://img.shields.io/github/stars/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging" alt="shield-stars" /></a>
-    <!-- Forks -->
-    <a href="https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/network/members"><img src="https://img.shields.io/github/forks/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging" alt="shield-forks" /></a>
-    <!-- downloads -->
-    <a href="https://www.npmjs.com/package/@ismael-node/red-contrib-firebase-notification?activeTab=versions"><img src="https://img.shields.io/npm/dm/@ismael-node/red-contrib-firebase-notification" alt="shield-downloads" /></a>
-    <!-- Versions -->
-    <img alt="GitHub package.json version (branch)" src="https://img.shields.io/github/package-json/v/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/master">
-    <img alt="GitHub package.json version (branch)" src="https://img.shields.io/github/package-json/v/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/development">
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![Downloads][downloads-shield]][downloads-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 </div>
 <br />
 
+<div style="text-align: center;">
+
+![Version Master][masterVersion-shield]
+![Version Development][devVersion-shield]
+
+</div>
+<br/>
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging">
+    <img src="images/firebase.png" alt="Logo" width="80">
+    <img src="images/node.png" alt="Logo" width="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">FCM Custom Node</h3>
 
   <p align="center">
-    project_description
+    A simple node that sends messages to the Firebase Cloud Messaging Service of Google to send notifications to a token or a topic.
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/issues">Request Feature</a>
   </p>
 </div>
-
 
 
 <!-- TABLE OF CONTENTS -->
@@ -94,58 +93,62 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![FCM Custom Node Screen Shot][product-screenshot]
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+This package is used to communicate with Firebase Cloud Messaging. It allows to send messages to the FCM service by token or topic in a simple manner.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 ### Built With
 
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* [![NodeJS][Node.js]][Node-url]
+* [![NodeRed][Node-red]][NodeRed-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## The Nodes
 
+![FCM Custom Node][customNodes-screenshot]
 
-<!-- GETTING STARTED -->
-## Getting Started
+There are 2 nodes included with this contrib
+| Node               | Purpose                                                  |
+| ------------------ | -------------------------------------------------------- |
+| FCMConfing         | Config node used to store the connection information     |
+| FCM                | Sends messages to FCM                                    |
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Prerequisites
+## How to use?
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+- From Manage Palette
 
-### Installation
+Find this package `@toolbox/red-contrib-firebase-notification` and click install.
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+- Install Manually  
+  Rememeber to restart Node RED after using this method.  
+  `.node-red` is usually relative to the users home directory that is running Node RED.
+
+```bash
+cd ~/.node-red
+npm install @toolbox/red-contrib-firebase-notification --omit=dev
+```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Authentication Methods
+
+- `Custom Token` (Generated with Private Key)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Getting Started Link
+
+- [Installing][starting-url]: System requirements and install instructions
+- [Generate key][generateKey-url]: How to generate the json key to authenticate
+- [Wiki][wiki-url]: Just about everything
+- [Firebase Site][firebase-url]: What is Firebase?
+- [Change Log](CHANGELOG.md): Whats changed?
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -165,16 +168,11 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [ ] Add testing
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -193,11 +191,10 @@ Don't forget to give the project a star! Thanks again!
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See [LICENSE][license-url] for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -206,20 +203,16 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Your Name - ismael.ortega.works@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging](https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-
-* []()
-* []()
-* []()
+Put your name here before making a pull request
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -227,32 +220,29 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging.svg?style=for-the-badge
+[contributors-url]: https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging.svg?style=for-the-badge
+[forks-url]: https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/network/members
+[stars-shield]: https://img.shields.io/github/stars/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging.svg?style=for-the-badge
+[stars-url]: https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/stargazers
+[issues-shield]: https://img.shields.io/github/issues/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging.svg?style=for-the-badge
+[issues-url]: https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/issues
+[license-shield]: https://img.shields.io/github/license/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging.svg?style=for-the-badge
+[license-url]: https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/blob/master/LICENSE
+[downloads-shield]: https://img.shields.io/npm/dm/@toolbox/red-contrib-firebase-notification?style=for-the-badge
+[downloads-url]: https://github.com/ismaelOrtega14/red-contrib-firebase-notification?activeTab=versions
+[masterVersion-shield]: https://img.shields.io/github/package-json/v/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/master?style=for-the-badge
+[devVersion-shield]: https://img.shields.io/github/package-json/v/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/development?style=for-the-badge
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[linkedin-url]: https://linkedin.com/in/ismaelortega
+[product-screenshot]: images/screenshot.jpeg
+[Node.js]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
+[Node-url]: https://nodejs.org/
+[Node-red]: https://img.shields.io/badge/Node--RED-%238F0000.svg?style=for-the-badge&logo=node-red&logoColor=white
+[NodeRed-url]: https://nodered.org/
+[customNodes-screenshot]: images/customNodes.png
+[starting-url]: https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/wiki/getting-started
+[generateKey-url]: https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/wiki/generate-key
+[wiki-url]: https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/wiki
+[firebase-url]: https://firebase.google.com/

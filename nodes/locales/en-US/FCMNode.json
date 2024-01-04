@@ -1,0 +1,41 @@
+{
+    "FCM": {
+        "fields": {
+            "name": {
+                "label": "Name",
+                "placeholder": "Firebase Cloud Messaging"
+            },
+            "firebaseConfig": {
+                "label": "Firebase Config"
+            },
+            "destination": {
+                "label": "Send to:",
+                "placeholder": "Token or topic"
+            },
+            "title": {
+                "label": "Title",
+                "placeholder": "Message title"
+            },
+            "body": {
+                "label": "Body",
+                "placeholder": "Message body"
+            }
+        }
+    },
+    "FCMConfig": {
+        "fields": {
+            "name": {
+                "label": "Name",
+                "placeholder": "FCM Config Name"
+            },
+            "keyPath": {
+                "label": "Key Path",
+                "placeholder": "Key location path"
+            },
+            "proxy": {
+                "label": "Http Proxy",
+                "placeholder": "Proxy url"
+            }
+        }
+    }
+}
