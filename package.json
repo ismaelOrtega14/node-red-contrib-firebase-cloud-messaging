@@ -4,9 +4,7 @@
   "description": "Custom node to send push notifications to firebase",
   "main": "nodes/firebaseCloudMessagingNode.js",
   "scripts": {
-    "clean": "rm -rf build/lib build/**/*.js",
     "lint": "eslint . --ext .js",
-    "prettier": "prettier --write \"**/*.{md,ts}\"",
     "test": "mocha './test/**/*_spec.js' --exit",
     "start": "node-red -u ./.node-red"
   },
@@ -40,8 +38,6 @@
   },
   "dependencies": {
     "axios": "^1.6.3",
-    "googleapis": "^129.0.0",
-    "https": "^1.0.0",
-    "request": "^2.88.2"
+    "googleapis": "^129.0.0"
   }
 }
