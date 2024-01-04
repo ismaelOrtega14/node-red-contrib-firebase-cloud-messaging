@@ -50,31 +50,39 @@ function getAccessToken(keyPath) {
 function sendFcmMessage(messageInfo, keyPath, proxy) {
   return new Promise(function(resolve, reject) {
     getAccessToken(keyPath).then(function([accessToken, path]) {
-
       const options = {
         baseURL: HOST,
         headers: {
-          'Authorization': `Bearer ${accessToken}`
-        }
-      }
+          'Authorization': `Bearer ${accessToken}`,
+        },
+      };
 
       if (proxy) {
+        const extractUrlInfo =
+          /^((https?):\/\/)?(([^\/:]+):([^\/@]+))?@?([^:]+)(:(\d+)?)?(.*)$/;
 
-        const extractUrlInfo = /^((https?):\/\/)?(([^\/:]+):([^\/@]+))?@?([^:]+)(:(\d+)?)?(.*)$/;
-
-        const [, , protocol = "http", , user, password, host, , port = 80, path = ""] = extractUrlInfo.exec(proxy);
+        const [,
+          ,
+          protocol = 'http',
+          ,
+          user,
+          password,
+          host,
+          ,
+          port = 80,
+          path = ''] = extractUrlInfo.exec(proxy);
 
         options['proxy'] = {
-            host: host + path,
-            port: port,
-            protocol: protocol,
-          };
+          host: host + path,
+          port: port,
+          protocol: protocol,
+        };
 
         if (user) {
           options['proxy']['auth'] = {
-              username: user,
-              password: password,
-            }
+            username: user,
+            password: password,
+          };
         }
       }
 
@@ -92,17 +100,16 @@ function sendFcmMessage(messageInfo, keyPath, proxy) {
       message['message'][messageInfo.type] = messageInfo.destination;
 
       axiosInstance.post(path, message)
-        .then(response => {
-          if (response.status != 200) reject(response.data);
+          .then((response) => {
+            if (response.status != 200) reject(response.data);
 
-           resolve(response.data);
-        })
-        .catch(error => {
-          if (error.response) reject(error.response.data || 'Unkown error');
+            resolve(response.data);
+          })
+          .catch((error) => {
+            if (error.response) reject(error.response.data || 'Unkown error');
 
-          reject(error)
-        });
-
+            reject(error);
+          });
     }).catch((error) => {
       reject(error);
     });

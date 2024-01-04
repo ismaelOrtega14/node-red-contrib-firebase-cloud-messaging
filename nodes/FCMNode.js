@@ -4,6 +4,11 @@ const nodeUtils = require('./lib/nodeUtils');
 // --------------- CONFIG NODE STARTS ---------------
 
 module.exports = function(RED) {
+  /**
+   * Method that creates the FCM configuration custom node
+   *
+   * @param {object} config Node configuration object given by node-red
+   */
   function FirebaseConfig(config) {
     RED.nodes.createNode(this, config);
 
@@ -27,19 +32,19 @@ module.exports = function(RED) {
 
     if (config.proxy) {
       nodeUtils.evaluateValue(RED,
-        config.proxy,
-        config.proxyType,
-        node,
-        null,
-        (err, result) => {
-          if (err) {
-            // Something went wrong accessing context
-            node.error(err);
-          } else {
-            node.proxy = result;
-            node.debug(`Configured proxy: ${node.proxy}`);
-          }
-        });
+          config.proxy,
+          config.proxyType,
+          node,
+          null,
+          (err, result) => {
+            if (err) {
+              // Something went wrong accessing context
+              node.error(err);
+            } else {
+              node.proxy = result;
+              node.debug(`Configured proxy: ${node.proxy}`);
+            }
+          });
     }
   }
 
@@ -48,6 +53,12 @@ module.exports = function(RED) {
   // --------------- CONFIG NODE ENDS ---------------
   // --------------- MAIN NODE STARTS ---------------
 
+
+  /**
+   * Method that creates the FCM custom node
+   *
+   * @param {object} config Node configuration object given by node-red
+   */
   function FirebaseCloudMessagingNode(config) {
     RED.nodes.createNode(this, config);
 
@@ -65,7 +76,10 @@ module.exports = function(RED) {
             });
         node.log(`Sending notification: \n${JSON.stringify(messageInfo)}`);
 
-        firebaseAdmin.sendFcmMessage(messageInfo, node.firebaseConfig.keyPath, node.firebaseConfig.proxy)
+        const keyPath = node.firebaseConfig.keyPath;
+        const proxy = node.firebaseConfig.keyPath;
+
+        firebaseAdmin.sendFcmMessage(messageInfo, keyPath, proxy)
             .then((msgId) => {
               msg.payload = msgId.name;
               node.status(
@@ -91,6 +105,15 @@ module.exports = function(RED) {
     });
   }
 
+  /**
+   * With the custom node and configuration this function
+   * creates de message body to send to firebase
+   *
+   * @param {object} config Node configuration object given by node-red
+   * @param {object} msg message received by the custom node
+   * @param {object} node custom node information object
+   * @return {object} message to send to firebase
+   */
   function createMessageInfo(config, msg, node) {
     return new Promise((resolve, reject) => {
       const messageInfo = {
