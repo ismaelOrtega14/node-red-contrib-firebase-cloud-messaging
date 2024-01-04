@@ -6,13 +6,11 @@
  * @return {string} The string formated
  */
 function formatText(text, ...params) {
-  return text.replace(/{(\d+)}/g, function(match, number) {
-    return typeof params[number] != 'undefined' ?
-      params[number] :
-      match;
-  });
+    return text.replace(/{(\d+)}/g, function (match, number) {
+        return typeof params[number] != 'undefined' ? params[number] : match
+    })
 }
 
 module.exports = {
-  formatText,
-};
+    formatText,
+}

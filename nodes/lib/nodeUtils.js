@@ -9,21 +9,21 @@
  * @param {Function} callback Function to call when finish
  */
 function evaluateValue(RED, value, type, node, msg, callback) {
-  node.debug(`Evaluate value ${value} of type ${type}`);
+    node.debug(`Evaluate value ${value} of type ${type}`)
 
-  if (type == 'str' || type == undefined) callback(null, value);
+    if (type == 'str' || type == undefined) callback(null, value)
 
-  if (type == 'jsonata') {
-    const jsonataExpression = RED.util.prepareJSONataExpression(value, node);
-    node.debug('JSONata expresion created');
-    RED.util.evaluateJSONataExpression(jsonataExpression, msg, callback);
-  }
+    if (type == 'jsonata') {
+        const jsonataExpression = RED.util.prepareJSONataExpression(value, node)
+        node.debug('JSONata expresion created')
+        RED.util.evaluateJSONataExpression(jsonataExpression, msg, callback)
+    }
 
-  if (type == 'msg' || type == 'flow' || type == 'global') {
-    RED.util.evaluateNodeProperty(value, type, node, msg, callback);
-  }
+    if (type == 'msg' || type == 'flow' || type == 'global') {
+        RED.util.evaluateNodeProperty(value, type, node, msg, callback)
+    }
 }
 
 module.exports = {
-  evaluateValue,
-};
+    evaluateValue,
+}
