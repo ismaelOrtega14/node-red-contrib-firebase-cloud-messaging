@@ -1,0 +1,83 @@
+[
+    {
+        "id": "248236bc6f9c252f",
+        "type": "FCM",
+        "z": "3cf5d67e27a8b218",
+        "name": "",
+        "firebaseConfig": "6ed5c97949f1c82a",
+        "messageMode": "topic",
+        "destination": "topic",
+        "destinationType": "msg",
+        "title": "title",
+        "titleType": "msg",
+        "body": "body",
+        "bodyType": "msg",
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "8502b78e5a601398"
+            ]
+        ]
+    },
+    {
+        "id": "aabfbb75a805a583",
+        "type": "inject",
+        "z": "3cf5d67e27a8b218",
+        "name": "Send Notificaiton",
+        "props": [
+            {
+                "p": "title",
+                "v": "a title",
+                "vt": "str"
+            },
+            {
+                "p": "body",
+                "v": "a body",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "topic",
+        "x": 140,
+        "y": 160,
+        "wires": [
+            [
+                "248236bc6f9c252f"
+            ]
+        ]
+    },
+    {
+        "id": "8502b78e5a601398",
+        "type": "debug",
+        "z": "3cf5d67e27a8b218",
+        "name": "msg.payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "6ed5c97949f1c82a",
+        "type": "FCMConfig",
+        "name": "Configuration",
+        "keyPath": "/keypath/key.json",
+        "keyPathType": "str",
+        "proxy": "",
+        "proxyType": "str"
+    }
+]
