@@ -1,0 +1,138 @@
+<script type="text/javascript">
+  RED.nodes.registerType('FCM',{
+    category: 'function',
+    color: '#a6bbcf',
+    defaults: {
+      name: {value:""},
+      firebaseConfig: {value: "", type: "FCMConfig"},
+      messageMode: {value:"token"},
+      destination: {value:"", required: true},
+      destinationType: {value:"str"},
+      title: {value:"", required: true},
+      titleType: {value:"str"},
+      body: {value:"", required: true},
+      bodyType: {value:"str"},
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "envelope.svg",
+    color: "#FFCC66",
+    label: function() {
+      return this.name||"Firebase Cloud Messaging";
+    },
+    oneditprepare: function() {
+      $("#node-input-destination").typedInput({
+        type:"str",
+        types:["str","msg","flow","global","jsonata"],
+        typeField: "#node-input-destinationType"
+      })
+      $("#node-input-title").typedInput({
+        type:"str",
+        types:["str","msg","flow","global","jsonata"],
+        typeField: "#node-input-titleType"
+      })
+      $("#node-input-body").typedInput({
+        type:"str",
+        types:["str","msg","flow","global","jsonata"],
+        typeField: "#node-input-bodyType"
+      })
+      $("#node-input-messageMode").typedInput({
+        types: [
+          {
+            value: "fruit",
+            options: [
+              { value: "token", label: "Device Token"},
+              { value: "topic", label: "Topic"},
+            ]
+          }
+        ]
+      })
+    }
+  });
+</script>
+
+<script type="text/html" data-template-name="FCM">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="FCM.fields.name.label"></span></label>
+    <input type="text" id="node-input-name" data-i18n="[placeholder]FCM.fields.name.placeholder">
+  </div>
+  <div class="form-row">
+    <label for="node-input-firebaseConfig"><i class="fa fa-server"></i> <span data-i18n="FCM.fields.firebaseConfig.label"></span></label>
+    <input type="text" id="node-input-firebaseConfig">
+  </div>
+  <div class="form-row">
+    <label for="node-input-destination"><i class="fa fa-code"></i> <span data-i18n="FCM.fields.destination.label"></span></label>
+    <input type="text" id="node-input-messageMode" style="width: 120px";>
+    <input type="text" id="node-input-destination" data-i18n="[placeholder]FCM.fields.destination.placeholder">
+    <input type="hidden" id="node-input-destinationType">
+  </div>
+  <div class="form-row">
+    <label for="node-input-title"><i class="fa fa-font"></i> <span data-i18n="FCM.fields.title.label"></span></label>
+    <input type="text" id="node-input-title" data-i18n="[placeholder]FCM.fields.title.placeholder">
+    <input type="hidden" id="node-input-titleType">
+  </div>
+  <div class="form-row">
+    <label for="node-input-body"><i class="fa fa-align-left"></i> <span data-i18n="FCM.fields.body.label"></span></label>
+    <input type="text" id="node-input-body" data-i18n="[placeholder]FCM.fields.body.placeholder">
+    <input type="hidden" id="node-input-bodyType">
+  </div>
+</script>
+
+<!-- Config node -->
+
+<script type="text/javascript">
+  RED.nodes.registerType('FCMConfig',{
+    category: 'config',
+    defaults: {
+      name: {
+        value:""
+      },
+      keyPath: {
+        value:"",
+        required:true
+      },
+      keyPathType: {
+        value:"str"
+      },
+      proxy: {
+        value:""
+      },
+      proxyType: {
+        value:"str"
+      },
+    },
+    label: function() {
+      return this.name||`${this.projectId}:${this.keyPath}`;
+    },
+    oneditprepare: function() {
+      $("#node-config-input-keyPath").typedInput({
+        type:"str",
+        types:["str","global","jsonata"],
+        typeField: "#node-config-input-keyPathType"
+      })
+      $("#node-config-input-proxy").typedInput({
+        type:"str",
+        types:["str","global","jsonata"],
+        typeField: "#node-config-input-proxyType"
+      })
+    }
+  });
+</script>
+
+<script type="text/html" data-template-name="FCMConfig">
+  <div class="form-row">
+    <label for="node-config-input-name"><i class="fa fa-tag"></i> <span data-i18n="FCMConfig.fields.name.label"></span></label>
+    <input type="text" id="node-config-input-name" data-i18n="[placeholder]FCMConfig.fields.name.placeholder">
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-keyPath"><i class="fa fa-key"></i> <span data-i18n="FCMConfig.fields.keyPath.label"></span></label>
+    <input type="text" id="node-config-input-keyPath" data-i18n="[placeholder]FCMConfig.fields.keyPath.placeholder">
+    <input type="hidden" id="node-config-input-keyPathType">
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-proxy"><i class="fa fa-lock"></i> <span data-i18n="FCMConfig.fields.proxy.label"></span></label>
+    <input type="text" id="node-config-input-proxy" data-i18n="[placeholder]FCMConfig.fields.proxy.placeholder">
+    <input type="hidden" id="node-config-input-proxyType">
+  </div>
+  <div class="form-tips"><b>Info:</b> Proxy can be empty, can contains credentials with user:password@url format and by default if not indicated uses http protocol and the port 80</div>
+</script>
