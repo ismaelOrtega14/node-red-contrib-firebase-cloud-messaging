@@ -1,5 +1,5 @@
 {
-  "name": "@iorsan/red-contrib-firebase-notification",
+  "name": "@iorsan/node-red-contrib-firebase-cloud-messaging",
   "version": "1.0.0",
   "description": "Custom node to send push notifications to firebase",
   "main": "nodes/firebaseCloudMessagingNode.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ismaelOrtega14/red-contrib-firebase-notification.git"
+    "url": "git+https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging.git"
   },
   "keywords": [
     "admin",
@@ -22,10 +22,11 @@
   "author": "Ismael Ortega",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ismaelOrtega14/red-contrib-firebase-notification/issues"
+    "url": "https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/issues"
   },
-  "homepage": "https://github.com/ismaelOrtega14/red-contrib-firebase-notification#readme",
+  "homepage": "https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/blob/master/README.md",
   "node-red": {
+    "version": ">=2.0.0",
     "nodes": {
       "push-firebase": "nodes/FCMNode.js"
     }
