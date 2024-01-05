@@ -92,7 +92,7 @@ There are 2 nodes included with this contrib
 
 -   From Manage Palette
 
-Find this package `@iorsan/red-contrib-firebase-notification` and click install.
+Find this package `@iorsan/node-red-contrib-firebase-notification` and click install.
 
 -   Install Manually  
     Rememeber to restart Node RED after using this method.  
@@ -100,7 +100,7 @@ Find this package `@iorsan/red-contrib-firebase-notification` and click install.
 
 ```bash
 cd ~/.node-red
-npm install @iorsan/red-contrib-firebase-notification --omit=dev
+npm install @iorsan/node-red-contrib-firebase-notification --omit=dev
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -187,7 +187,7 @@ Put your name here before making a pull request
 [issues-url]: https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/issues
 [license-shield]: https://img.shields.io/github/license/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging.svg?style=for-the-badge
 [license-url]: https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/blob/master/LICENSE
-[downloads-shield]: https://img.shields.io/npm/dm/@iorsan/red-contrib-firebase-notification?style=for-the-badge
+[downloads-shield]: https://img.shields.io/npm/dm/@iorsan/node-red-contrib-firebase-notification?style=for-the-badge
 [downloads-url]: https://github.com/ismaelOrtega14/red-contrib-firebase-notification?activeTab=versions
 [masterVersion-shield]: https://img.shields.io/github/package-json/v/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/master?style=for-the-badge
 [devVersion-shield]: https://img.shields.io/github/package-json/v/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/development?style=for-the-badge
