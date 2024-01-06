@@ -1,10 +1,10 @@
 <script type="text/javascript">
-  RED.nodes.registerType('FCM',{
+  RED.nodes.registerType('FCM Send',{
     category: 'network',
     color: '#a6bbcf',
     defaults: {
       name: {value:""},
-      firebaseConfig: {value: "", type: "FCMConfig"},
+      firebaseConfig: {value: "", type: "FCM Config"},
       messageMode: {value:"token"},
       destination: {value:"", required: true},
       destinationType: {value:"str"},
@@ -51,7 +51,7 @@
   });
 </script>
 
-<script type="text/html" data-template-name="FCM">
+<script type="text/html" data-template-name="FCM Send">
   <div class="form-row">
     <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="FCM.fields.name.label"></span></label>
     <input type="text" id="node-input-name" data-i18n="[placeholder]FCM.fields.name.placeholder">
@@ -81,7 +81,7 @@
 <!-- Config node -->
 
 <script type="text/javascript">
-  RED.nodes.registerType('FCMConfig',{
+  RED.nodes.registerType('FCM Config',{
     category: 'config',
     defaults: {
       name: {
@@ -119,7 +119,7 @@
   });
 </script>
 
-<script type="text/html" data-template-name="FCMConfig">
+<script type="text/html" data-template-name="FCM Config">
   <div class="form-row">
     <label for="node-config-input-name"><i class="fa fa-tag"></i> <span data-i18n="FCMConfig.fields.name.label"></span></label>
     <input type="text" id="node-config-input-name" data-i18n="[placeholder]FCMConfig.fields.name.placeholder">

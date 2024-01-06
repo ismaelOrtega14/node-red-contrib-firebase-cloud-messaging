@@ -57,6 +57,8 @@ function sendFcmMessage(messageInfo, keyPath, proxy) {
                     },
                 }
 
+                console.log("-------------> " + proxy)
+
                 if (proxy) {
                     const extractUrlInfo =
                         // eslint-disable-next-line no-useless-escape
@@ -88,6 +90,9 @@ function sendFcmMessage(messageInfo, keyPath, proxy) {
                         }
                     }
                 }
+
+                console.log(options)
+
 
                 const axiosInstance = axios.create(options)
 

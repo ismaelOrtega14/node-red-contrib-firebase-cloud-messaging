@@ -22,7 +22,7 @@ const FCMNode = require('../nodes/FCMNode')
 const flow = [
     {
         id: 'n0',
-        type: 'FCMConfig',
+        type: 'FCM Config',
         name: 'test/configuration',
         keyPath: '/keypath/key.json',
         keyPathType: 'str',
@@ -50,7 +50,7 @@ describe('FCMNode Node', function () {
             const newFlow = [
                 {
                     id: 'n1',
-                    type: 'FCM',
+                    type: 'FCM Send',
                     name: 'test/fcm',
                     firebaseConfig: 'n0',
                     messageMode: 'token',
@@ -69,10 +69,10 @@ describe('FCMNode Node', function () {
                     const n1 = helper.getNode('n1')
                     const n0 = helper.getNode('n0')
                     n1.should.have.property('name', 'test/fcm')
-                    n1.should.have.property('type', 'FCM')
+                    n1.should.have.property('type', 'FCM Send')
                     n1.firebaseConfig.should.be.Object()
                     n0.should.have.property('name', 'test/configuration')
-                    n0.should.have.property('type', 'FCMConfig')
+                    n0.should.have.property('type', 'FCM Config')
                     done()
                 } catch (error) {
                     done(error)
@@ -84,7 +84,7 @@ describe('FCMNode Node', function () {
             const newFlow = [
                 {
                     id: 'n1',
-                    type: 'FCM',
+                    type: 'FCM Send',
                     name: 'test/fcm',
                     firebaseConfig: null,
                     messageMode: 'token',
@@ -101,7 +101,7 @@ describe('FCMNode Node', function () {
             helper.load([FCMNode], newFlow, function () {
                 try {
                     const logEvents = helper.log().args.filter(function (evt) {
-                        return evt[0].type == 'FCM'
+                        return evt[0].type == 'FCM Send'
                     })
 
                     logEvents.should.have.length(1)
