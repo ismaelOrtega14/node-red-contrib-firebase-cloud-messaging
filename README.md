@@ -188,7 +188,7 @@ Put your name here before making a pull request
 [license-shield]: https://img.shields.io/github/license/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging.svg?style=for-the-badge
 [license-url]: https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/blob/master/LICENSE
 [downloads-shield]: https://img.shields.io/npm/dm/@iorsan/node-red-contrib-firebase-notification?style=for-the-badge
-[downloads-url]: https://github.com/ismaelOrtega14/red-contrib-firebase-notification?activeTab=versions
+[downloads-url]: https://www.npmjs.com/package/@iorsan/node-red-contrib-firebase-cloud-messaging?activeTab=versions
 [masterVersion-shield]: https://img.shields.io/github/package-json/v/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/master?style=for-the-badge
 [devVersion-shield]: https://img.shields.io/github/package-json/v/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/development?style=for-the-badge
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
