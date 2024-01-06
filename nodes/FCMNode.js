@@ -47,7 +47,7 @@ module.exports = function (RED) {
         }
     }
 
-    RED.nodes.registerType('FCMConfig', FirebaseConfig)
+    RED.nodes.registerType('FCM Config', FirebaseConfig)
 
     // --------------- CONFIG NODE ENDS ---------------
     // --------------- MAIN NODE STARTS ---------------
@@ -82,7 +82,7 @@ module.exports = function (RED) {
                     )
 
                     const keyPath = node.firebaseConfig.keyPath
-                    const proxy = node.firebaseConfig.keyPath
+                    const proxy = node.firebaseConfig.proxy
 
                     firebaseAdmin
                         .sendFcmMessage(messageInfo, keyPath, proxy)
@@ -173,5 +173,5 @@ module.exports = function (RED) {
         })
     }
 
-    RED.nodes.registerType('FCM', FirebaseCloudMessagingNode)
+    RED.nodes.registerType('FCM Send', FirebaseCloudMessagingNode)
 }
