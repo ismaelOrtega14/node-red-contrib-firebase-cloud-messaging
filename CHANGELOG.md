@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.2]
 
+### Added
+
+-   Checked with node v14 and updated workflow to test in that version
+
 ### Fixed
 
 -   Examples error due to node id change
