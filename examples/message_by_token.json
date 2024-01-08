@@ -1,7 +1,7 @@
 [
     {
         "id": "248236bc6f9c252f",
-        "type": "FCM",
+        "type": "FCM Send",
         "z": "3cf5d67e27a8b218",
         "name": "",
         "firebaseConfig": "6ed5c97949f1c82a",
@@ -74,7 +74,7 @@
     },
     {
         "id": "6ed5c97949f1c82a",
-        "type": "FCMConfig",
+        "type": "FCM Config",
         "name": "Configuration",
         "keyPath": "/keypath/key.json",
         "keyPathType": "str",
