@@ -1,6 +1,6 @@
 {
   "name": "@iorsan/node-red-contrib-firebase-cloud-messaging",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Custom node to send push notifications to firebase",
   "main": "nodes/firebaseCloudMessagingNode.js",
   "scripts": {
@@ -19,6 +19,9 @@
     "node-red",
     "custom-node"
   ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "author": "Ismael Ortega",
   "license": "MIT",
   "bugs": {
@@ -41,8 +44,5 @@
     "axios": "^1.6.5",
     "googleapis": "^130.0.0",
     "mocha": "^10.2.0"
-  },
-  "engines": {
-    "node": ">=14.0.0"
   }
 }

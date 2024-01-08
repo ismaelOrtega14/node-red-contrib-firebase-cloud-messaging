@@ -96,7 +96,9 @@ module.exports = function (RED) {
                             node.send(msg)
                         })
                         .catch((error) => {
-                            node.error(`Error sending notification \n${error}`)
+                            const errorMessage = typeof error === 'object' ? JSON.stringify(error) : error;
+
+                            node.error(`Error sending notification \n${errorMessage}`)
                             node.status({
                                 fill: 'red',
                                 shape: 'dot',
