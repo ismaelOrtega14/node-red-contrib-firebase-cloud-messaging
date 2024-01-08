@@ -1,6 +1,6 @@
 {
   "name": "@iorsan/node-red-contrib-firebase-cloud-messaging",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Custom node to send push notifications to firebase",
   "main": "nodes/firebaseCloudMessagingNode.js",
   "scripts": {
