@@ -3,7 +3,11 @@ A simple node that sends messages to the Firebase Cloud Messaging Service of Goo
 
 ### Outputs
 1. Standard output
-: payload (string) : The path to the firebase message with the message id  `projects/{projectId}/messages/{messageId}`
+: payload.status (number) : Response status code given by firebase
+: payload.data (string) : Response of firebase. Can contain the message id `projects/{projectId}/messages/{messageId}`
+
+2. Standard error
+: error (object) : Message error object given by firebase
 
 ### References
 

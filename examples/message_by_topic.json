@@ -2,7 +2,7 @@
     {
         "id": "248236bc6f9c252f",
         "type": "FCM Send",
-        "z": "3cf5d67e27a8b218",
+        "z": "58c7ea9a3b72dd62",
         "name": "",
         "firebaseConfig": "6ed5c97949f1c82a",
         "messageMode": "topic",
@@ -12,18 +12,21 @@
         "titleType": "msg",
         "body": "body",
         "bodyType": "msg",
-        "x": 380,
-        "y": 160,
+        "x": 860,
+        "y": 440,
         "wires": [
             [
                 "8502b78e5a601398"
+            ],
+            [
+                "3aae9e8a0791582f"
             ]
         ]
     },
     {
         "id": "aabfbb75a805a583",
         "type": "inject",
-        "z": "3cf5d67e27a8b218",
+        "z": "58c7ea9a3b72dd62",
         "name": "Send Notificaiton",
         "props": [
             {
@@ -46,8 +49,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "topic",
-        "x": 140,
-        "y": 160,
+        "x": 620,
+        "y": 440,
         "wires": [
             [
                 "248236bc6f9c252f"
@@ -57,7 +60,7 @@
     {
         "id": "8502b78e5a601398",
         "type": "debug",
-        "z": "3cf5d67e27a8b218",
+        "z": "58c7ea9a3b72dd62",
         "name": "msg.payload",
         "active": true,
         "tosidebar": true,
@@ -67,8 +70,25 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 610,
-        "y": 160,
+        "x": 1090,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "3aae9e8a0791582f",
+        "type": "debug",
+        "z": "58c7ea9a3b72dd62",
+        "name": "msg.error",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "error",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 460,
         "wires": []
     },
     {

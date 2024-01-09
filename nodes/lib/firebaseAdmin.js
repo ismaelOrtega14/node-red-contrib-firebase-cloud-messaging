@@ -15,7 +15,15 @@ const SCOPES = [MESSAGING_SCOPE]
  */
 function getAccessToken(keyPath) {
     return new Promise(function (resolve, reject) {
-        const key = require(keyPath)
+        let key
+
+        try {
+            // a path we KNOW is totally bogus and not a module
+            key = require(keyPath)
+        } catch (e) {
+            reject(`Key file '${keyPath}' not found`)
+        }
+
         const jwtClient = new google.auth.JWT(
             key.client_email,
             null,
@@ -57,8 +65,6 @@ function sendFcmMessage(messageInfo, keyPath, proxy) {
                     },
                 }
 
-                console.log("-------------> " + proxy)
-
                 if (proxy) {
                     const extractUrlInfo =
                         // eslint-disable-next-line no-useless-escape
@@ -93,7 +99,6 @@ function sendFcmMessage(messageInfo, keyPath, proxy) {
 
                 console.log(options)
 
-
                 const axiosInstance = axios.create(options)
 
                 const message = {
@@ -110,9 +115,10 @@ function sendFcmMessage(messageInfo, keyPath, proxy) {
                 axiosInstance
                     .post(path, message)
                     .then((response) => {
-                        if (response.status != 200) reject(response.data)
-
-                        resolve(response.data)
+                        resolve({
+                            status: response.status,
+                            payload: response.data
+                        })
                     })
                     .catch((error) => {
                         if (error.response)
