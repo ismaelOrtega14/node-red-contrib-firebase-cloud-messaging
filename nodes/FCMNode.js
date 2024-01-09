@@ -86,24 +86,32 @@ module.exports = function (RED) {
 
                     firebaseAdmin
                         .sendFcmMessage(messageInfo, keyPath, proxy)
-                        .then((msgId) => {
-                            msg.payload = msgId.name
+                        .then((response) => {
+                            msg.payload = response
                             node.status({
                                 fill: 'green',
                                 shape: 'dot',
                                 text: 'Notification sent',
                             })
-                            node.send(msg)
+                            node.send([msg, null])
                         })
                         .catch((error) => {
-                            const errorMessage = typeof error === 'object' ? JSON.stringify(error) : error;
-
-                            node.error(`Error sending notification \n${errorMessage}`)
+                            const errorMessage =
+                                typeof error === 'string'
+                                    ? error
+                                    : JSON.stringify(error)
+                            
+                            msg.error = error
+                            node.error(
+                                `Error sending notification \n\t-${errorMessage}`
+                            )
                             node.status({
                                 fill: 'red',
                                 shape: 'dot',
                                 text: 'Error notifying',
                             })
+
+                            node.send([null, msg])
                         })
                 })
                 .catch((error) => {
