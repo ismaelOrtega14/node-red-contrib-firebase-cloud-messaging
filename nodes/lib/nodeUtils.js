@@ -13,6 +13,8 @@ function evaluateValue(RED, value, type, node, msg, callback) {
 
     if (type == 'str' || type == undefined) callback(null, value)
 
+    if (type == 'json') callback(null, JSON.parse(value))
+
     if (type == 'jsonata') {
         const jsonataExpression = RED.util.prepareJSONataExpression(value, node)
         node.debug('JSONata expresion created')

@@ -12,13 +12,27 @@
                 "label": "Send to:",
                 "placeholder": "Token or topic"
             },
-            "title": {
-                "label": "Title",
-                "placeholder": "Message title"
+            "notification": {
+                "groupTitle": "Notification object",
+                "title": {
+                    "label": "Title",
+                    "placeholder": "Notification title"
+                },
+                "body": {
+                    "label": "Body",
+                    "placeholder": "Notification body"
+                },
+                "image": {
+                    "label": "Image",
+                    "placeholder": "Image URL"
+                }
             },
-            "body": {
-                "label": "Body",
-                "placeholder": "Message body"
+            "data": {
+                "groupTitle": "Personaliced data object",
+                "customData": {
+                    "label": "Personaliced data",
+                    "placeholder": "Personaliced data object"
+                }
             }
         }
     },

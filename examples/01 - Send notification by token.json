@@ -1,0 +1,108 @@
+[
+    {
+        "id": "248236bc6f9c252f",
+        "type": "FCM Send",
+        "z": "58c7ea9a3b72dd62",
+        "name": "",
+        "firebaseConfig": "6ed5c97949f1c82a",
+        "destinationMode": "token",
+        "destination": "token",
+        "destinationType": "msg",
+        "notificationTitle": "title",
+        "notificationTitleType": "msg",
+        "notificationBody": "body",
+        "notificationBodyType": "msg",
+        "notificationImage": "http://foo.var",
+        "notificationImageType": "str",
+        "data": "{\"a\": \"b\"}",
+        "dataType": "jsonata",
+        "x": 860,
+        "y": 440,
+        "wires": [
+            [
+                "8502b78e5a601398"
+            ],
+            [
+                "3aae9e8a0791582f"
+            ]
+        ]
+    },
+    {
+        "id": "aabfbb75a805a583",
+        "type": "inject",
+        "z": "58c7ea9a3b72dd62",
+        "name": "Send Notificaiton",
+        "props": [
+            {
+                "p": "title",
+                "v": "a title",
+                "vt": "str"
+            },
+            {
+                "p": "body",
+                "v": "a body",
+                "vt": "str"
+            },
+            {
+                "p": "token",
+                "v": "a token",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 620,
+        "y": 440,
+        "wires": [
+            [
+                "248236bc6f9c252f"
+            ]
+        ]
+    },
+    {
+        "id": "8502b78e5a601398",
+        "type": "debug",
+        "z": "58c7ea9a3b72dd62",
+        "name": "msg.payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "3aae9e8a0791582f",
+        "type": "debug",
+        "z": "58c7ea9a3b72dd62",
+        "name": "msg.error",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "error",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "6ed5c97949f1c82a",
+        "type": "FCM Config",
+        "name": "Configuration",
+        "keyPath": "E:\\Development\\Custom Nodes\\node-red-contrib-firebase-notification\\keys\\clave.json",
+        "keyPathType": "str",
+        "proxy": "",
+        "proxyType": "str"
+    }
+]

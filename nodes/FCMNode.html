@@ -5,13 +5,17 @@
     defaults: {
       name: {value:""},
       firebaseConfig: {value: "", type: "FCM Config"},
-      messageMode: {value:"token"},
-      destination: {value:"", required: true},
+      destinationMode: {value:"token"},
+      destination: {value:""},
       destinationType: {value:"str"},
-      title: {value:"", required: true},
-      titleType: {value:"str"},
-      body: {value:"", required: true},
-      bodyType: {value:"str"},
+      notificationTitle: {value:""},
+      notificationTitleType: {value:"str"},
+      notificationBody: {value:""},
+      notificationBodyType: {value:"str"},
+      notificationImage: {value:""},
+      notificationImageType: {value:"str"},
+      data: {value:"{}"},
+      dataType: {value:"json"},
     },
     inputs: 1,
     outputs: 2,
@@ -22,25 +26,32 @@
       return this.name||"Firebase Cloud Messaging";
     },
     oneditprepare: function() {
-      $("#node-input-destination").typedInput({
-        type:"str",
-        types:["str","msg","flow","global","jsonata"],
-        typeField: "#node-input-destinationType"
+      $(".typedText").each(function() {
+        let elem = $(this);
+
+        elem.typedInput({
+          type:"str",
+          types:["str","msg","flow","global","jsonata"],
+          typeField: `#${elem.attr("id")}Type`
+        })
       })
-      $("#node-input-title").typedInput({
-        type:"str",
-        types:["str","msg","flow","global","jsonata"],
-        typeField: "#node-input-titleType"
+
+      $(".typedJson").each(function() {
+        let elem = $(this);
+
+        console.log(`#${elem.attr("id")}Type`)
+
+        elem.typedInput({
+          type:"json",
+          types:["json","msg","flow","global","jsonata"],
+          typeField: `#${elem.attr("id")}Type`
+        })
       })
-      $("#node-input-body").typedInput({
-        type:"str",
-        types:["str","msg","flow","global","jsonata"],
-        typeField: "#node-input-bodyType"
-      })
-      $("#node-input-messageMode").typedInput({
+
+      $("#node-input-destinationMode").typedInput({
         types: [
           {
-            value: "fruit",
+            value: "token",
             options: [
               { value: "token", label: "Device Token"},
               { value: "topic", label: "Topic"},
@@ -48,9 +59,47 @@
           }
         ]
       })
+
+
+      $(".hideButton").click(function () {
+        $(this).parent().next().toggle('slow');
+
+        // Cambiar el icono del botón
+        let icon = $(this).find("i");
+        icon.toggleClass("rotated");
+      })
     }
   });
 </script>
+
+<style>
+  /* Estilo opcional para ocultar la parte del formulario */
+  .hidden {
+    display: none;
+  }
+
+  /* Estilo para el botón */
+  .hideButton {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .hideButton i {
+    margin-right: 5px;
+    transition: transform 0.3s;
+  }
+
+  .rotated {
+    transform: rotate(90deg);
+  }
+
+  .tabbed {
+    margin-left: 25px;
+  }
+</style>
 
 <script type="text/html" data-template-name="FCM Send">
   <div class="form-row">
@@ -63,19 +112,58 @@
   </div>
   <div class="form-row">
     <label for="node-input-destination"><i class="fa fa-code"></i> <span data-i18n="FCM.fields.destination.label"></span></label>
-    <input type="text" id="node-input-messageMode" style="width: 120px";>
-    <input type="text" id="node-input-destination" data-i18n="[placeholder]FCM.fields.destination.placeholder">
+    <input type="text" id="node-input-destinationMode" style="width: 120px";>
+    <input type="text" id="node-input-destination" class="typedText" data-i18n="[placeholder]FCM.fields.destination.placeholder">
     <input type="hidden" id="node-input-destinationType">
   </div>
-  <div class="form-row">
-    <label for="node-input-title"><i class="fa fa-font"></i> <span data-i18n="FCM.fields.title.label"></span></label>
-    <input type="text" id="node-input-title" data-i18n="[placeholder]FCM.fields.title.placeholder">
-    <input type="hidden" id="node-input-titleType">
+
+  <!-- Notification data -->
+  <hr>
+  <div class="form-row" style="width:100%;">
+    <a class="hideButton"><i class="fa fa-chevron-right"></i> <span data-i18n="FCM.fields.notification.groupTitle"></span></a>
   </div>
-  <div class="form-row">
-    <label for="node-input-body"><i class="fa fa-align-left"></i> <span data-i18n="FCM.fields.body.label"></span></label>
-    <input type="text" id="node-input-body" data-i18n="[placeholder]FCM.fields.body.placeholder">
-    <input type="hidden" id="node-input-bodyType">
+  <div class="hidden tabbed">
+    <div class="form-row">
+      <label for="node-input-notificationTitle"><i class="fa fa-quote-left"></i> <span data-i18n="FCM.fields.notification.title.label"></span></label>
+      <input type="text" id="node-input-notificationTitle" class="typedText" data-i18n="[placeholder]FCM.fields.notification.title.placeholder">
+      <input type="hidden" id="node-input-notificationTitleType">
+    </div>
+    <div class="form-row">
+      <label for="node-input-notificationBody"><i class="fa fa-align-left"></i> <span data-i18n="FCM.fields.notification.body.label"></span></label>
+      <input type="text" id="node-input-notificationBody" class="typedText" data-i18n="[placeholder]FCM.fields.notification.body.placeholder">
+      <input type="hidden" id="node-input-notificationBodyType">
+    </div>
+    <div class="form-row">
+      <label for="node-input-notificationImage"><i class="fa fa-image"></i> <span data-i18n="FCM.fields.notification.image.label"></span></label>
+      <input type="text" id="node-input-notificationImage" class="typedText" data-i18n="[placeholder]FCM.fields.notification.image.placeholder">
+      <input type="hidden" id="node-input-notificationImageType">
+    </div>
+  </div>
+
+  <!-- Personaliced data -->
+  <hr>
+  <div class="form-row" style="width:100%;">
+    <a class="hideButton"><i class="fa fa-chevron-right"></i> <span data-i18n="FCM.fields.data.groupTitle"></span></a>
+  </div>
+  <div class="hidden tabbed">
+    <div class="form-row">
+      <label for="node-input-data"><i class="fa fa-database"></i> <span data-i18n="FCM.fields.data.customData.label"></span></label>
+      <input type="text" id="node-input-data" class="typedJson" data-i18n="[placeholder]FCM.fields.data.customData.placeholder">
+      <input type="hidden" id="node-input-dataType">
+    </div>
+    <div class="form-tips">
+      <b>Dont want to send data?:</b> Leave an empty object. The custom node is going to ignore it.
+    </div>
+  </div>
+
+  <!-- Tip -->
+  <hr>
+  <div class="form-tips">
+    <b>Info:</b> More information about the message format <a href="https://firebase.google.com/docs/cloud-messaging/concept-options">here</a><br/>
+  </div>
+  <br/>
+  <div class="form-tips">
+    <b>Missing config?:</b> If you want to send a full configuration object with configurations not shown in this node you can give the full object as <code>msg.firebaseMessage</code>. Values in custom node will be ignored and the recieved object will be sent as is to firebase.
   </div>
 </script>
 
