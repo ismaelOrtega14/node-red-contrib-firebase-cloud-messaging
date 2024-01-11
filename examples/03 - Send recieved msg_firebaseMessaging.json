@@ -5,15 +5,19 @@
         "z": "58c7ea9a3b72dd62",
         "name": "",
         "firebaseConfig": "6ed5c97949f1c82a",
-        "messageMode": "token",
-        "destination": "token",
-        "destinationType": "msg",
-        "title": "title",
-        "titleType": "msg",
-        "body": "body",
-        "bodyType": "msg",
-        "x": 860,
-        "y": 440,
+        "destinationMode": "topic",
+        "destination": "a",
+        "destinationType": "str",
+        "notificationTitle": "",
+        "notificationTitleType": "str",
+        "notificationBody": "",
+        "notificationBodyType": "str",
+        "notificationImage": "",
+        "notificationImageType": "str",
+        "data": "{}",
+        "dataType": "jsonata",
+        "x": 760,
+        "y": 360,
         "wires": [
             [
                 "8502b78e5a601398"
@@ -30,19 +34,9 @@
         "name": "Send Notificaiton",
         "props": [
             {
-                "p": "title",
-                "v": "a title",
-                "vt": "str"
-            },
-            {
-                "p": "body",
-                "v": "a body",
-                "vt": "str"
-            },
-            {
-                "p": "token",
-                "v": "device token",
-                "vt": "str"
+                "p": "firebaseMessage",
+                "v": "{\"token\":\"a token\",\"notification\":{\"title\":\"a title\",\"body\":\"a body\"},\"data\":{\"a\":\"b\"}}",
+                "vt": "json"
             }
         ],
         "repeat": "",
@@ -50,8 +44,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 620,
-        "y": 440,
+        "x": 520,
+        "y": 360,
         "wires": [
             [
                 "248236bc6f9c252f"
@@ -71,8 +65,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1090,
-        "y": 420,
+        "x": 990,
+        "y": 340,
         "wires": []
     },
     {
@@ -88,15 +82,15 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1080,
-        "y": 460,
+        "x": 980,
+        "y": 380,
         "wires": []
     },
     {
         "id": "6ed5c97949f1c82a",
         "type": "FCM Config",
         "name": "Configuration",
-        "keyPath": "/keypath/key.json",
+        "keyPath": "E:\\Development\\Custom Nodes\\node-red-contrib-firebase-notification\\keys\\clave.json",
         "keyPathType": "str",
         "proxy": "",
         "proxyType": "str"

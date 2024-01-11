@@ -126,6 +126,11 @@ npm install @iorsan/node-red-contrib-firebase-notification --omit=dev
 ## Roadmap
 
 -   [ ] Add testing
+-   [ ] Add wiki
+    - [ ] Getting started
+    - [ ] How to generate a key
+    - [ ] How to add params with parse easily
+
 
 See the [open issues](https://github.com/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/issues) for a full list of proposed features (and known issues).
 
@@ -193,7 +198,7 @@ Put your name here before making a pull request
 [devVersion-shield]: https://img.shields.io/github/package-json/v/ismaelOrtega14/node-red-contrib-firebase-cloud-messaging/development?style=for-the-badge
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/ismaelortega
-[product-screenshot]: images/screenshot.jpeg
+[product-screenshot]: images/screenshot.png
 [Node.js]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
 [Node-url]: https://nodejs.org/
 [Node-red]: https://img.shields.io/badge/Node--RED-%238F0000.svg?style=for-the-badge&logo=node-red&logoColor=white

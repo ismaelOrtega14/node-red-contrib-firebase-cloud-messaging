@@ -1,6 +1,6 @@
 const { google } = require('googleapis')
 const axios = require('axios')
-const stringUtils = require('./stringUtils')
+const stringUtils = require('./utils')
 
 const HOST = 'https://fcm.googleapis.com'
 const PATH = '/v1/projects/{0}/messages:send'
@@ -47,14 +47,13 @@ function getAccessToken(keyPath) {
 /**
  * Send HTTP request to FCM with given message.
  *
- * @param {object} messageInfo Object with information used to
- *                              make up the body of the request.
+ * @param {object} message Message object to send to firebase.
  * @param {string} keyPath location of the key to create the
  *                          jwt to call firebase
  * @param {string} proxy Proxy url if needed
  * @return {Promise} A promise that returns the result of the call or a error
  */
-function sendFcmMessage(messageInfo, keyPath, proxy) {
+function sendFcmMessage(message, keyPath, proxy) {
     return new Promise(function (resolve, reject) {
         getAccessToken(keyPath)
             .then(function ([accessToken, path]) {
@@ -97,27 +96,18 @@ function sendFcmMessage(messageInfo, keyPath, proxy) {
                     }
                 }
 
-                console.log(options)
-
                 const axiosInstance = axios.create(options)
 
-                const message = {
-                    message: {
-                        notification: {
-                            title: messageInfo.title,
-                            body: messageInfo.body,
-                        },
-                    },
+                const firebaseMessage = {
+                    message: message,
                 }
 
-                message['message'][messageInfo.type] = messageInfo.destination
-
                 axiosInstance
-                    .post(path, message)
+                    .post(path, firebaseMessage)
                     .then((response) => {
                         resolve({
                             status: response.status,
-                            payload: response.data
+                            payload: response.data,
                         })
                     })
                     .catch((error) => {
