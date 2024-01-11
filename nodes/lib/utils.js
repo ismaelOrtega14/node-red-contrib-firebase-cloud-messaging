@@ -19,6 +19,7 @@ function formatText(text, ...params) {
  */
 function deepMerge(target, source) {
     for (const key in source) {
+        if (key === "__proto__" || key === "constructor") continue;
         if (Object.prototype.hasOwnProperty.call(source, key)) {
             if (
                 source[key] instanceof Object &&
